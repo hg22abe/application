@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+background-color: white;
+}
+
+.container {
+width: 80%;
+margin: auto;
+overflow: hidden;
+}
+
+.box {
+background-color: skyblue;
+padding: 20px;
+border-radius: 5px;
+margin-bottom: 30px;
+margin-top: 30px;
+}
+
+.box h2 {
+margin-top: 0;
+}
+
+.box p {
+margin-bottom: 0;
+}
+
+.upcoming {
+margin-bottom: 30px;
+}
+
+.in-5-days {
+margin-bottom: 30px;
+}
+
+.appointment-details {
+margin-bottom: 30px;
+}
+
+.past {
+margin-bottom: 30px;
+}
+
+.reschedule {
+background-color: skyblue;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 20px;
+}
+
+.your-appointments {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.buttons {
+text-align: center;
+margin-bottom: 30px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1 class="your-appointments">Your Appointments</h1>
+
+<div class="buttons">
+<button onclick="window.location.href=document.getElementById('reschedule').value">Upcoming Appointments</button>
+<button onclick="window.location.href=document.getElementById('reschedule').value">Past Appointments</button>
+</div>
+
+<div class="box">
+<h2>Your appointment is on {{ day }}th September with the Health Worker</h2>
+<p>The time slot is {{ time }}</p>
+<p>+44 20 7123 4567</p>
+
+<h3>Appointment Details</h3>
+<p>56 GLOUCESTER ROAD, KENSINGTON.</p>
+</div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table td, table th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            cursor: pointer;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .selected {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .selected-time {
+        background-color: #007bff;
+        color: white;
+        }
+
+
+        table tr:nth-child(even){background-color: #f2f2f2; cursor: pointer;}
+
+        table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: skyblue;
+            color: white;
+            cursor: pointer;
+        }
+
+        .time-slots {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .time-slot {
+            width: 14%;
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .calendar-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .calendar {
+            width: 48%;
+            cursor: default;
+        }
+
+        .space {
+            height: 20px;
+        }
+
+        .time-slots {
+            background-color: skyblue;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .book-appointment-button {
+            background-color: skyblue;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+
+<h2>Make an Appointment - September 2024</h2>
+
+<div class="calendar-container">
+    <div class="calendar">
+        <table>
+            <tr>
+                <th style="background-color: skyblue;">SUN</th>
+                <th style="background-color: skyblue;">MON</th>
+                <th style="background-color: skyblue;">TUE</th>
+                <th style="background-color: skyblue;">WED</th>
+                <th style="background-color: skyblue;">THU</th>
+                <th style="background-color: skyblue;">FRI</th>
+                <th style="background-color: skyblue;">SAT</th>
+            </tr>
+            <tr>
+                <td class="date", onclick="handleClick(28)", data-day="28">28</td>
+                <td class="date", onclick="handleClick(29)", data-day="29">29</td>
+                <td class="date", onclick="handleClick(30)", data-day="30">30</td>
+                <td class="date", onclick="handleClick(31)", data-day="31">31</td>
+                <td class="date", onclick="handleClick(1)", data-day="1">1</td>
+                <td class="date", onclick="handleClick(2)", data-day="2">2</td>
+                <td class="date", onclick="handleClick(3)", data-day="3">3</td>
+
+
+            </tr>
+        
+            <tr>
+                <td class="date", onclick="handleClick(4)", data-day="4">4</td>
+                <td class="date", onclick="handleClick(5)", data-day="5">5</td>
+                <td class="date", onclick="handleClick(6)", data-day="6">6</td>
+                <td class="date", onclick="handleClick(7)", data-day="7">7</td>
+                <td class="date", onclick="handleClick(8)", data-day="8">8</td>
+                <td class="date", onclick="handleClick(9)", data-day="9">9</td>
+                <td class="date", onclick="handleClick(10)", data-day="10">10</td>
+            </tr>
+            <tr>
+                <td class="date", onclick="handleClick(11)", data-day="11">11</td>
+                <td class="date", onclick="handleClick(12)", data-day="12">12</td>
+                <td class="date", onclick="handleClick(13)", data-day="13">13</td>
+                <td class="date", onclick="handleClick(14)", data-day="14">14</td>
+                <td class="date", onclick="handleClick(15)", data-day="15">15</td>
+                <td class="date", onclick="handleClick(16)", data-day="16">16</td>
+                <td class="date", onclick="handleClick(17)", data-day="17">17</td>
+            </tr>
+            <tr>
+                <td class="date", onclick="handleClick(18)", data-day="18">18</td>
+                <td class="date", onclick="handleClick(19)", data-day="19">19</td>
+                <td class="date", onclick="handleClick(20)", data-day="20">20</td>
+                <td class="date", onclick="handleClick(21)", data-day="21">21</td>
+                <td class="date", onclick="handleClick(22)", data-day="22">22</td>
+                <td class="date", onclick="handleClick(23)", data-day="23">23</td>
+                <td class="date", onclick="handleClick(24)", data-day="24">24</td>
+            </tr>
+            <tr>
+                <td class="date", onclick="handleClick(25)", data-day="25">25</td>
+                <td class="date", onclick="handleClick(26)", data-day="26">26</td>
+                <td class="date", onclick="handleClick(27)", data-day="27">27</td>
+                <td colspan="5" style="text-align: center;">Time slots</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<script>
+
+
+    function handleClick(day) {
+
+
+        var dateElements = document.querySelectorAll('.date');
+        dateElements.forEach(function(element) {
+            element.classList.remove('selected');
+        });
+
+
+        var clickedDate = document.querySelector('.date[data-day="' + day + '"]');
+        clickedDate.classList.add('selected');
+        document.getElementById('selected_day').value = day;
+        alert("you booked on the day " + day)
+    }
+
+    function handleTimeClick(timeSlot) {
+
+        var timeSlotElements = document.querySelectorAll('.time-slots');
+        timeSlotElements.forEach(function(element) {
+            element.classList.remove('selected-time');
+        });
+
+        var clickedTimeSlot = document.querySelector('.time-slots[data-time="' + timeSlot + '"]');
+        clickedTimeSlot.classList.add('selected-time');
+        document.getElementById('selected_time').value = timeSlot;
+
+
+        alert("you booked on the time slot " + timeSlot);
+    }
+
+</script>
+
+<div class="space"></div>
+
+
+
+
+<button class="time-slots", onclick="handleTimeClick('12:30-13:00')", data-time="12:30-13:00"> 12:30-13:00 </button>
+<button class="time-slots", onclick="handleTimeClick('9:30-10:00')", data-time="9:30-10:00"> 9:30-10:00 </button>
+<button class="time-slots", onclick="handleTimeClick('15:00-15:30')", data-time="15:00-15:30"> 15:00-15:30 </button>
+<button class="time-slots", onclick="handleTimeClick('10:15-10:45')", data-time="10:15-10:45"> 10:15-10:45 </button>
+<button class="time-slots", onclick="handleTimeClick('18:00-18:30')", data-time="18:00-18:30"> 18:00-18:30 </button>
+
+
+<div class="space"></div>
+<form class="myappointment" action="/addpatient/time", method="post">
+    <input type="hidden" name="selected_day" id="selected_day">
+    <input type="hidden" name="selected_time" id="selected_time">
+    <button class="book-appointment-button">Book Appointment</button>
+</form>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sight Saver</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #00bfff; /* Changed to sky blue */
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .account-type {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .account-type button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .account-type button:hover {
+            background-color: #2980b9;
+        }
+
+        .account-type label {
+            margin-right: 10px;
+        }
+
+        .account-type select {
+            padding: 5px;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Sight Saver</div>
+        <div class="title">Experience instant clarity on diabetic retinopathy</div>        
+        <div class="account-type">
+            <form id="accountForm", action="/next", method="post">
+                <label for="account">Choose your Account type</label>
+                <select id="account", name="account">
+                   <option value="">Select an option</option>
+                   <option value="patient">Patient</option>
+                   <option value="healthworker">Health Worker</option>
+            </select>
+            <button onclick="window.location.href=document.getElementById('accountType').value">Enter</button>
+        </div>
+    </div>
+</body>
+</html>
